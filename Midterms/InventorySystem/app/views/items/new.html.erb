@@ -1,0 +1,10 @@
+<h1>New Item</h1>
+
+<%= simple_form_for(@item, :url => create_item_path) do |f| %>
+  
+  <%= f.input :name %>
+  <%= f.input :code %>
+  <%= f.input :description %>
+  <%= f.submit "Save Item" %>
+  </table>
+<% end %>

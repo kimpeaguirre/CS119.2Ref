@@ -1,0 +1,46 @@
+
+
+Hash- a set of key values
+	-resembles a lot of Json
+	-key
+	-value
+	-object
+	-by default, a variable that is = to a {} to represent an object.
+	-represents instance of an object
+	-Acessing hash is the same way as accessing an array
+	-calling the symbol the name of the hash
+	-you can give it a value by passing a string value
+	
+
+MVC Paradigm
+
+Model- Data, business rules
+View- Applicaions interface
+Controller- controls flow of data or information throughout your system; or dictates where to go.
+
+User sends a request to one of the controllers. Controller will process what the user sends.
+Request- comprises of many things. Often contains a URL or a path to our system and the data.
+		
+		What controller does:
+
+		1) Process the URL
+			-will check routes. Which part of the system is the URL
+		2) Call the necessary models and will build a response
+		3) Return a response back to the user
+			-wil contain a combination of view and model. View will paint a picture (in terms of an interface) of what the model wants to show.
+
+
+STARTING WITH RAILS 
+
+rails new petstore
+
+	controller folder  
+		petstore > app > controllers > concerns > application_controller
+			create a new file in the controller folder --> pages_controller.rb (The name of your controller is pages and not pages controller)
+	go to routes.rb
+		config > routes.rb
+
+To run it, go to where you created the rails, and then rails s on terminal
+uncomment therubyracer, and then bundle install again
+	you can get them from rubygems.org
+	http://localhost:3000/dashboard

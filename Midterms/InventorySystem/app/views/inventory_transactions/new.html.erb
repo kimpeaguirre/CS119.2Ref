@@ -1,0 +1,11 @@
+<h1>New Inventory Transaction</h1>
+
+<%= simple_form_for(@inventory_transaction, :url => create_inventory_transaction_path) do |f| %>
+  
+  <%= f.date :transacted_at %>
+  <%= f.association :inventory_item %>
+  <%= f.input :quantity %>
+  <%= f.input :transaction_type %>
+  <%= f.submit "Save Inventory Transaction" %>
+  </table>
+<% end %>

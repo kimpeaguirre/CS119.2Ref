@@ -1,0 +1,7 @@
+<h1>Edit Inventory Item</h1>
+
+<%= simple_form_for(@inventory_item, :url => update_inventory_item_path, :method => :post) do |f| %>
+  <%= f.association :item %>
+  <%= f.input :quantity %>
+  <%= f.submit "Save Inventory Item" %>
+<% end %>

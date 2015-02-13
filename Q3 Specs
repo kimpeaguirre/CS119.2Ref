@@ -1,0 +1,30 @@
+Q3: Quotation
+
+Contract has one to many bills, and bill belongs to one and onlly one contract.
+
+Contract
+-name
+-total_price
+-description
+-status (Pending, Paid)
+
+Billing
+-contract_id
+-billed_at
+-price
+
+
+Q3: Output
+
+1) CRUD Contract and Billing
+
+2) Adding Billings
+	a) After create
+		Check if
+			Total price is reached
+		If true
+			Update Contract status to paid
+		Check validity of billing price
+
+Tip 1) Default.Status = "Pending"
+	2) Function that returns remaining a balance

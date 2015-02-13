@@ -1,0 +1,22 @@
+<%= simple_nested_form_for(@shoppinglist) do |f| %>
+	<%= f.error_notification %>
+
+<div class="form_inputs">
+	<%= f.input :name %>
+	<%= f.input :deadline %>
+	<%= f.input :total_price %>
+</div>
+
+<div id="shopping_list_items">
+	<%= f.fields_for :shopping_list_items do |ff| %>
+	<%= ff.association :item %>
+	<%= ff.input :price %>
+	<%= ff.input :quantity %>
+	<%= ff.link_to_remove "Remove" %>
+	<% end %>
+</div>
+<%= f.link_to_add "Add Shopping List Item", shopping_list_item %>
+
+<div class="form-action">
+	<%= f.button :submit %>
+

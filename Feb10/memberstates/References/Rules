@@ -1,0 +1,7 @@
+RULES
+
+1) Default state (inactive)
+2) Function to update state inside model
+
+	a) create member
+		-validates and then saves

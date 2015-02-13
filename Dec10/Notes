@@ -1,0 +1,149 @@
+Model Review:
+
+1) rails new addressbook
+	-cd into addressbook
+
+2) Edit config/routes.rb
+
+	root (:to => "pages#index")
+
+3) Create the corresponding controller#method
+
+	File: pages_controller.rb
+	Implementation: (create this in app/controllers and name it pages_controller.rb)
+
+	class PagesController < ApplicationController
+		
+		def index
+			render :template => "pages/index"
+		end	
+		
+	end
+
+	File: app/views/pages/index.html.erb
+
+	dapat merong index.html.erbna may laman na 
+			<h1> Welcome to my page </h1>
+
+4) Create a model that represents a contact person
+
+	Table: contacts (plural in form) (and model name is singular in form)
+	Atributes:
+		-first_name (string)
+		-last_name (string)
+		-email (string)
+		-contact_number (string)
+		-address (text)
+
+	Implementing this table will require you to perforn a command
+	comamand: 
+		rails generate mdodel Contact first_name:string last_name:string email:string contact_number:string address:text
+
+	Go to gem file and uncomment the rubyracer.
+
+	To migrate the migrating command into db, run this
+		rake db:migrate
+
+	And then go check db/schema.rb
+
+4a) Add more columns into database (kasi kunwari you forgot to put it earlier)
+	- DON'T EDIT db/schema.rb DON'T TOUCH IT AT ALL.
+	-Create a migration file instead.
+	-Before creating migration file, determine your requirements.
+	-I have to add middle_name (string) into contacts
+
+	rails generate migration add_middle_name_to_contacts
+
+	Then go to that file ^
+	and then ilagay mo sa def change
+		def change
+			add_column:contacts :middle_name :string)
+		end
+
+	in the migration under def change
+	add_column(:table_name :field_name :data_type)
+	add_column(:contacts :middle_name :string)
+
+4b) Add fixture or set of data into our database
+
+	contact = Contact..new (instatntiating a new instance of contact)
+	contact.first_name = "Raphael"
+	contact.middle_name = "B"
+	contact.last_name = "Alampay"
+	contact.email = "raphael.alampay@gmail.com"
+	contact.contact_number "4266001"
+	contact.save
+
+	Alternative:
+
+	Contact.create(
+		first_name: "Leonardo",
+		middle_name: "B",
+		last_name: "Alampay",
+		email: "leonardo.alampay@gmail.com",
+		contact_number: "5366002"
+		)
+
+	Call this command in rails console (the command line prompt which will allow us to interact with all the rails application programatically without having to touch the web browser)
+		rails console           (and then you can enter the environment)
+	Tapos dun mo na ipasok pasok yung mga contact.new bullshit.
+	And then to test, 
+		puts contact.first_name
+
+Go to class Contact 
+	class Contact < ActiveRecord::Base
+		self.table_name = "contacts"
+	
+		def full_name
+			"{#first_name, #last_name, #email}"
+		end
+	end
+
+4c) Perform a SELECT stamtemnet for only 1 record based on id
+	id = 1
+	c = Contact.find(id)
+
+4d) Perform  SELECT all statement that returns an array of objects
+
+	contacts = Contact.all
+	contacs.each do |c|
+		puts c.full_name
+	end
+
+5) Display all contacts in root page
+
+In file pages_controller.rb
+	def index
+		@contacts = Contacts.all
+		render :template => "pages/index"
+	end
+
+Go back to index.html.erb
+add
+	<ul> 
+			<% @contacts.deach do |c| %>
+					<l1> <%= c.full_name %=></l1>
+				<% end %> 
+
+6) Create a new route called:
+
+get "/contacts/:id", :to => "contacts#show", :as => :contact
+
+Exercise: Create the implementation for this route that displays the contact's values given an id
+
+		create contacts_controller.rb
+
+			class ContactsController < ApplicationController
+
+				def show
+					@contact = Contact.find(params[:id])
+					render(:template => "contacts/show")
+				end
+			end
+
+		Go back to routes and then
+
+		show.html.erb
+		<h1><% contact.full_name %></h1>
+		<h2><% contact.email %></h2>
+		<% link_to "Home", root_path %>

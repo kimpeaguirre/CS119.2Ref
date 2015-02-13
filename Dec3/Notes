@@ -1,0 +1,15 @@
+It would be costly for a company to implement an enterprise database. But in Enterprise programming, what we're concerned with is not a specific technology, but to apply the concepts of the database and display that information to our client. 
+
+Relational database- tables with corresponding fields
+
+Application- driver, to access a specific technology
+	-need to have credentials to be secure
+	-logic, to perforn necessary programs
+
+Query- Extract info from database and display it 
+	select * from persons;
+
+
+Abstraction layer- will apply a logic that will make it easier so that it won't be too expensive. An abstracted logic that maps the functionality into your underlying technology.
+-often implemented in the MBC paradigm by the models
+

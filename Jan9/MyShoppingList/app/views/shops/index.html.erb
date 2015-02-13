@@ -1,0 +1,16 @@
+<%= link_to "New Shop", new_shop_path %>
+<table style="width: 100%;">
+  <tr>
+    <th>Shop Name</th>
+    <th>Address</th>
+  </tr>
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= shop.name %></td>
+      <td><%= shop.address %></td>
+      <td>
+        <%= link_to "Delete", destroy_shop_path(shop.id), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

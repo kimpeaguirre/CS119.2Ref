@@ -1,0 +1,28 @@
+1) index : list stuff
+path :/contacts (Get)
+path name : contacts_path
+
+2) new :form for user
+path :/contacts/new (Get)
+pathj name : new_contact_path
+
+
+
+
+NOTES ABOUT SA QUIZ ABOUT TABLE ECHOS
+
+1) rails g model 
+FavoriteActor name:string
+-models/favorite_actor.rb
+-db/migrate/___.create.rb
+create_table :favorite _actors
+
+change the default name of the table before you migrate
+create+table 	:favorite_actors 
+				:my_favorite_actors (change ^ to this)
+
+What if mali yung name mo?
+	rake db:drop -- will delete your entire database
+Once you finish this, go to the migration file, change the name, and migrate it again
+	rake db:migrate
+

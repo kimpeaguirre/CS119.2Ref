@@ -1,0 +1,24 @@
+**Same number in a category matches same number in another.
+E.g. routes.rb 1 <==> controllers 1
+
+
+routes.rb
+1.root(:to => "pages#index")
+	-we gave it a location of a controller
+
+2. get("/about", to => "pages#about", :as => about)
+
+controllers (c)
+1.pages_controller.rb
+	-class PagesController < AppliicationController
+			def index
+				render template: "pages/index"
+			end
+
+views (v)
+1. views/pages/index.html.erb
+
+<%= ------ anything inside is considered ruby code that will be printed out in the html
+ <%= yield %> it will take the response of the html file and insert it inside a page
+ You can render other templates inside your layout.
+ WIthout having any template,s you can create a new folder called shared, and andun yung shared

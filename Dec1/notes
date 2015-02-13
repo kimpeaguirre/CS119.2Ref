@@ -1,0 +1,77 @@
+Be obsessive compulsive on what you code. Consider the space between indentation between two cahracters from its root alignment. It should be 2 spaces, and indentation should be 2 spaces from its parent container.
+
+link_to
+"<a href= #{path} #{text_to_display}></a>"
+
+type "rake routes" within the root directory of your application
+constructs a table with the following headers (yung mga may get get. your prefixes will automatically be appended with a link to path and constructs the html text for you.)
+Define it in your routes and assign it a symbol, when you rake routes it
+
+if else does not need to display anything, it's simply a logical fork 
+
+you only need the equal sign in the <%> when you need a printing out.
+
+Static pages- has static value which has static content; hardcoded content.
+For dynamic, you need get and post because these gets and retrieves information.
+
+Get & Post
+
+Get- get a /url and expect data to be passed back. Data is passed through the URL. 
+	E.g. youtube= URL/watch?v=Omov38923 
+		has different values for different vidoes.
+		v = variable
+		Omov38923 = value
+		And then youtube will aleady know what to play based on the parameters
+	Everything after the ? are the parameters for your request. (Called request parameters)
+	So when you watch different video, it will still render the same page design iba lang yung laman because iba yung parameters
+
+Post-
+
+Rails has a special variable called params.
+	params[:name_that_you_are_trying_to_access] 
+	-short for parameter
+	-It's not just any variable it's considered as a hash (container full of key value stuff)
+	-So any type of data that you pass to your aplication will be stored in your params hash.
+	-Parameters by default are strings.
+
+To pass the value from the root into the other pages, it should be
+	change the kakain_path to a function by adding parentheses
+	<% link_to "Eat an early lunch", kakain_path(name: => params[:name]) %>
+
+	Mutltiple values to the URL is done by ampersand(&). It means a different parameter.
+
+In the PagesController
+def index
+	@answer = params[:x].to_i + params[:y].to_i
+end
+
+^Not conventional beacuse it should be a model because controller should only be for definitions. Go to models instead. And create utility_service.rb
+
+Class UtilityService
+	def adder(x, y)
+		x = y
+	end
+end
+In the index
+
+In the PagesController
+def index
+	us = UtilityService.new
+	x = params[:x].to_i
+	y = params[:y].to_i
+	@answer = us.adder(x, y)
+end
+
+
+@ = we are declaring that variable to be an instance variable for an entire class and it will be made available to the template that renders the particular function where that instance variable happens. 
+
+Static method- dont have to instatntiate new method of that class just to call that method, so to improve the code
+In the PagesController
+def index
+	@answer = UtilityService.adder(params[:x].to_i, params[:y].to_i)
+	@name = params[:name]
+end
+
+
+Controller is separate 
+And has models which has the logic

@@ -1,0 +1,19 @@
+addressbook CRUD
+
+1) Create
+	irl for form /contcats/new (def new)
+	post to /contacts (def create)
+
+2) Update
+	url for form /contacts/:id/edit (def edit)
+	post to /contacts/:id (def update)
+
+3) Read
+	Read
+		url get /contacts/:id (def show)
+
+
+1) new app
+2) create model
+3) congfigure routes
+4) create controllers

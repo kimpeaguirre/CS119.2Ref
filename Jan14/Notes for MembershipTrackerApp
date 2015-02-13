@@ -1,0 +1,57 @@
+Requirements of MembershipTrackerApp
+
+1) Membership Module
+-Manage Members (CRUD)
+-Membership Type (Position)
+-Points for a Member
+-Status
+
+2) Groups(Organizations)
+-Manage Groups (add members, manage group info)
+
+3)Positions
+Priotiy
+
+
+
+
+Member
+-first_name (string, required)
+-last_name (string, required)
+-student_number (string, required, unique)
+-year (int, required)
+-course_id (int, fk)
+
+Course
+-name (string, presence, unique)
+-code (string, presence, unique)
+rails g model Course name:string code:string
+
+Category
+-name (string, presence, unique)
+-code (string, presence, unique)
+rails g model Category name:string code:string
+
+Position
+-name(string, presence, unique)
+-code(string, presence, unique)
+rails g model Position name:string code:string
+
+Organization
+-name(string, presence, unique)
+-code(string, presence, unique)
+-category_id(required,fk)
+-description
+
+MemberOrganization (Model)
+-member_id
+-organization_id
+-position_id
+-member_type
+-points (decimal)
+
+Create new rails
+Create ERD in notes for easier
+Models
+Gems (ruby racer, simple form, nested form) and then bundle install
+Routes

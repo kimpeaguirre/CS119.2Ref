@@ -1,0 +1,28 @@
+Example: Member
+			-active
+			-inactive (d)
+			-approve!
+
+MEMBER
+-pending
+-active
+-blacklisted
+
+
+ORDER
+-pending
+-paid
+-on-transit
+-delivered
+-declined
+
+RULES
+
+1) Default state (inactive) --> IT should not appear in form
+2) Function to update state inside model
+	-Business rules applied to state
+
+
+	a) create member
+		-validates and then saves
+

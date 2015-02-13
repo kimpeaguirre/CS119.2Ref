@@ -1,0 +1,7 @@
+<h1>Welcome to Tourist Attractions!</h1>
+
+<ul>
+  <% @touristattractions.each do |t| %>
+    <li><%= t.to_s %> | <%= link_to "Show", tourists_path(t.id) %></li>
+  <% end %>
+</ul>

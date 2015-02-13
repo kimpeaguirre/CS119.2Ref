@@ -1,0 +1,40 @@
+Model Review:
+
+1) rails new addressbook
+	-cd into addressbook
+
+2) Edit config/routes.rb
+
+	root (:to => "pages#index")
+
+3) Create the corresponding controller#method
+
+	File: pages_controller.rb
+	Implementation: (create this in app/controllers and name it pages_controller.rb)
+
+	class PagesController < ApplicationController
+		
+		def index
+			render :template => "pages/index"
+		end	
+		
+	end
+
+	File: app/views/pages/index.html.erb
+
+	dapat merong index.html.erbna may laman na 
+			<h1> Welcome to my page </h1>
+
+4) Create a model that represents a contact person
+	Table: contacts (plural in form) (and model name is singular in form)
+	Atributes:
+		-first_name (string)
+		-last_name (string)
+		-email (string)
+		-contact_number (string)
+		-address (text)
+
+	Implementing this table will require you to perforn a connabd
+	comamand: rails generate mdodel Contact first_name:string last_name:string email:string contact_number:string address:text
+
+	Go to gem file and uncomment the rubyracer.
